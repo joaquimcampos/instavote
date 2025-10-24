@@ -4,3 +4,4 @@ resources:
   - ../base
 patches:
   - path: deploy.yaml
+  - path: svc.yaml
