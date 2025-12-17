@@ -8,7 +8,7 @@ patches:
 
 replicas:
 - name: vote
-  count: 7
+  count: 1
 
 images:
 - name: schoolofdevops/vote
