@@ -5,28 +5,22 @@ resources:
 patches:
   - path: deploy.yaml
   - path: svc.yaml
-
 replicas:
-- name: vote
-  count: 1
-
+  - name: vote
+    count: 1
 images:
-- name: schoolofdevops/vote
-  newTag: v5 # {"$imagepolicy": "flux-system:vote:tag"}
-  # newName: lfs267/vote
-  # digest: sha256:24a0c4b4a4c0eb97a1aabb8e29f18e917d05abfe1b7a7c07857230879ce7d3d3  # it overrides tag
-
+  - name: schoolofdevops/vote
+    newTag: main-a1895a79-1765986177 # {"$imagepolicy": "flux-system:vote:tag"}
+    # newName: lfs267/vote
+    # digest: sha256:24a0c4b4a4c0eb97a1aabb8e29f18e917d05abfe1b7a7c07857230879ce7d3d3  # it overrides tag
 namespace: instavote
-
 labels:
   - pairs:
       project: instavote
       env: staging
-
 commonAnnotations:
   supported-by: "sre@example.com"
-
 configMapGenerator:
-- name: vote-options
-  envs:
-  - options.env
+  - name: vote-options
+    envs:
+      - options.env
